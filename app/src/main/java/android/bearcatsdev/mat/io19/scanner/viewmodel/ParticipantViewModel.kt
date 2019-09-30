@@ -13,8 +13,10 @@ class ParticipantViewModel: ViewModel() {
 
     fun doCheckIn(qrCode: Qr): LiveData<ParticipantResponse> {
         return liveData(Dispatchers.IO) {
+            try {
                 val checkedInParticipant = repository.checkIn(qrCode)
                 emit(checkedInParticipant)
+            } catch (e: Exception) {}
         }
     }
 }
