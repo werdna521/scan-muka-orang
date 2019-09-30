@@ -3,6 +3,8 @@
 
 A QR scanner application for signing in and claiming food at MAT I/O 2019
 
+
+# License
 ```
    Copyright 2019 Andrew Cen
 
