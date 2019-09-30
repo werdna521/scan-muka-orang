@@ -1,8 +1,7 @@
 package android.bearcatsdev.mat.io19.scanner.services
 
-import android.bearcatsdev.mat.io19.scanner.pojo.Participant
+import android.bearcatsdev.mat.io19.scanner.pojo.ParticipantResponse
 import android.bearcatsdev.mat.io19.scanner.utils.Constants
-import com.squareup.moshi.Json
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.Field
@@ -21,5 +20,5 @@ interface ParticipantService {
     }
 
     @POST("api/v1/signup")
-    suspend fun checkIn(@Field("qr_hash") qrCode: String): Participant
+    suspend fun checkIn(@Field("qr_hash") qrCode: String): ParticipantResponse
 }
