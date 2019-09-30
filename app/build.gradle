@@ -26,6 +26,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.squareup.retrofit2:retrofit:2.6.2'
+    implementation 'com.squareup.moshi:moshi:1.8.0'
     implementation 'me.dm7.barcodescanner:zxing:1.9.13'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'com.karumi:dexter:6.0.0'

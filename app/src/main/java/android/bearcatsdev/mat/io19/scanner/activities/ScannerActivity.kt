@@ -12,9 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package android.bearcatsdev.mat.io19.scanner
+package android.bearcatsdev.mat.io19.scanner.activities
 
 import android.Manifest
+import android.bearcatsdev.mat.io19.scanner.R
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -42,7 +43,8 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
             != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
                 arrayOf(Manifest.permission.CAMERA),
-                CAMERA_REQUEST_CODE)
+                CAMERA_REQUEST_CODE
+            )
         } else {
             mZXingScannerView.setResultHandler(this)
             mZXingScannerView.startCamera()

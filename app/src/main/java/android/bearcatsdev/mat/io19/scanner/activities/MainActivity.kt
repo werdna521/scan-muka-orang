@@ -12,8 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package android.bearcatsdev.mat.io19.scanner
+package android.bearcatsdev.mat.io19.scanner.activities
 
+import android.bearcatsdev.mat.io19.scanner.R
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button

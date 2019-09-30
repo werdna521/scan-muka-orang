@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".ScannerActivity">
+    tools:context=".activities.ScannerActivity">
 
     <me.dm7.barcodescanner.zxing.ZXingScannerView
         android:id="@+id/zxing"
