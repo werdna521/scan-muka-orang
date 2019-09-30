@@ -1,7 +1,6 @@
 package android.bearcatsdev.mat.io19.scanner.pojo
 
 import com.google.gson.annotations.SerializedName
-import com.squareup.moshi.Json
 
 data class Participant(
     @SerializedName("name") val name: String,
