@@ -4,5 +4,6 @@ import com.squareup.moshi.Json
 
 data class Participant(
     @field:Json(name = "name") val name: String,
-    @field:Json(name = "nim") val nim: String
+    @field:Json(name = "nim") val nim: String,
+    @field:Json(name = "message") val message: String
 )
