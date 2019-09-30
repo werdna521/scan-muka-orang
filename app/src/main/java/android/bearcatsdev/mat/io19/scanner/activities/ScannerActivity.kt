@@ -16,17 +16,23 @@ package android.bearcatsdev.mat.io19.scanner.activities
 
 import android.Manifest
 import android.bearcatsdev.mat.io19.scanner.R
+import android.bearcatsdev.mat.io19.scanner.pojo.Qr
+import android.bearcatsdev.mat.io19.scanner.viewmodel.ParticipantViewModel
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.google.zxing.Result
 import me.dm7.barcodescanner.zxing.ZXingScannerView
 
 class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
     private lateinit var mZXingScannerView: ZXingScannerView
+    private lateinit var mParticipantViewModel: ParticipantViewModel
 
     companion object {
         const val CAMERA_REQUEST_CODE = 100
@@ -37,6 +43,7 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
         setContentView(R.layout.activity_scanner)
 
         mZXingScannerView = findViewById(R.id.zxing)
+        mParticipantViewModel = ViewModelProvider.AndroidViewModelFactory.getInstance(application).create(ParticipantViewModel::class.java)
 
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.CAMERA)
@@ -72,7 +79,10 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
     }
 
     override fun handleResult(rawResult: Result?) {
-        Toast.makeText(this, rawResult?.text, Toast.LENGTH_SHORT).show()
+        mParticipantViewModel.doCheckIn(Qr(rawResult?.text ?: "")).observe(this, Observer { participantResponse ->
+            Toast.makeText(this, participantResponse.response.message, Toast.LENGTH_SHORT).show()
+            Log.d("hello", "ok")
+        })
         mZXingScannerView.resumeCameraPreview(this)
     }
 }
