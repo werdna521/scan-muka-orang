@@ -49,7 +49,6 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
             mZXingScannerView.setResultHandler(this)
             mZXingScannerView.startCamera()
         }
-
     }
 
     override fun onRequestPermissionsResult(requestCode: Int,
@@ -66,7 +65,6 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
             }
         }
     }
-
 
     override fun onStop() {
         super.onStop()
