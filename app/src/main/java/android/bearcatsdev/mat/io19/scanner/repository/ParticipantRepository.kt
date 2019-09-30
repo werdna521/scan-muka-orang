@@ -5,5 +5,5 @@ import android.bearcatsdev.mat.io19.scanner.services.ParticipantService
 class ParticipantRepository {
     private val participantService = ParticipantService.getService()
 
-    suspend fun signIn(qrCode: String) = participantService.signIn(qrCode)
+    suspend fun checkIn(qrCode: String) = participantService.checkIn(qrCode)
 }

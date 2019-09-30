@@ -10,10 +10,10 @@ import kotlinx.coroutines.Dispatchers
 class ParticipantViewModel: ViewModel() {
     private val repository = ParticipantRepository()
 
-    fun doSignIn(qrCode: String): LiveData<Participant> {
+    fun doCheckIn(qrCode: String): LiveData<Participant> {
         return liveData(Dispatchers.IO) {
             try {
-                val signedInParticipant = repository.signIn(qrCode)
+                val signedInParticipant = repository.checkIn(qrCode)
                 emit(signedInParticipant)
             } catch (e: Exception) {
             }
