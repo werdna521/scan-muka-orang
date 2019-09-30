@@ -21,5 +21,5 @@ interface ParticipantService {
     }
 
     @POST("api/v1/signup")
-    suspend fun signUp(@Field("qr_hash") qrCode: String): Participant
+    suspend fun signIn(@Field("qr_hash") qrCode: String): Participant
 }
