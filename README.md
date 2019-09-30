@@ -3,6 +3,8 @@
 
 A QR scanner application for signing in and claiming food at MAT I/O 2019
 
+## Download
+Get the latest app by downloading the .apk from releases
 
 # License
 ```
