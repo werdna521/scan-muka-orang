@@ -28,8 +28,8 @@
         android:layout_marginTop="@dimen/margin_extra_wide"
         app:strokeColor="@color/lineColor"
         app:strokeWidth="@dimen/thin_line"
-        app:cardElevation="1dp"
-        app:cardCornerRadius="10dp"
+        app:cardElevation="@dimen/card_elevation"
+        app:cardCornerRadius="@dimen/corner_radius"
         app:cardBackgroundColor="@android:color/white">
 
         <LinearLayout
