@@ -162,9 +162,9 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
         takenFoodTextView.text = if (participantResponse.response.takenFood == 1) "Yes" else "No"
 
         if (scanId == 2 && participantResponse.response.message == "Food has been claimed once") {
-            titleTextView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_cross, 0, 0, 0)
+            titleTextView.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_cross, 0, 0)
         } else {
-            titleTextView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_checked, 0, 0, 0)
+            titleTextView.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_checked, 0, 0)
         }
 
         okButton.setOnClickListener {
