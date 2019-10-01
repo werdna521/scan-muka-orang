@@ -47,6 +47,7 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
         setContentView(R.layout.activity_scanner)
 
         val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
+        toolbar.title = ""
         setSupportActionBar(toolbar)
         toolbar.setNavigationOnClickListener {
             finish()
