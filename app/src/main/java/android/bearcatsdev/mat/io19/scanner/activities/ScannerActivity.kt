@@ -78,6 +78,11 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
         mZXingScannerView.stopCamera()
     }
 
+    override fun onResume() {
+        super.onResume()
+        mZXingScannerView.startCamera()
+    }
+
     override fun handleResult(rawResult: Result?) {
         mParticipantViewModel.doCheckIn(Qr(rawResult?.text ?: "")).observe(this, Observer { participantResponse ->
             when (participantResponse.status) {
