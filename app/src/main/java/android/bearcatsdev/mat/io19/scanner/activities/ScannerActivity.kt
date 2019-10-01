@@ -80,9 +80,15 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
 
     override fun handleResult(rawResult: Result?) {
         mParticipantViewModel.doCheckIn(Qr(rawResult?.text ?: "")).observe(this, Observer { participantResponse ->
-            Toast.makeText(this, participantResponse.response.message, Toast.LENGTH_SHORT).show()
-            Log.d("hello", "ok")
+            when (participantResponse.status) {
+                200 -> showDetailsDialog()
+                else -> Toast.makeText(this, participantResponse.response.message, Toast.LENGTH_SHORT).show()
+            }
         })
         mZXingScannerView.resumeCameraPreview(this)
+    }
+
+    private fun showDetailsDialog() {
+        // TODO start new full screen dialog to show participant info
     }
 }

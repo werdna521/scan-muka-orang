@@ -14,6 +14,7 @@
 
 package android.bearcatsdev.mat.io19.scanner.viewmodel
 
+import android.bearcatsdev.mat.io19.scanner.pojo.Participant
 import android.bearcatsdev.mat.io19.scanner.pojo.ParticipantResponse
 import android.bearcatsdev.mat.io19.scanner.pojo.Qr
 import android.bearcatsdev.mat.io19.scanner.repository.ParticipantRepository
@@ -30,7 +31,11 @@ class ParticipantViewModel: ViewModel() {
             try {
                 val checkedInParticipant = repository.checkIn(qrCode)
                 emit(checkedInParticipant)
-            } catch (e: Exception) {}
+            } catch (e: Exception) {
+                emit(ParticipantResponse(400,
+                    Participant("?", "?", "?", "?",
+                        0, 0, "Not a valid e-ticket")))
+            }
         }
     }
 }
