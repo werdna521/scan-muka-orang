@@ -38,4 +38,17 @@ class ParticipantViewModel: ViewModel() {
             }
         }
     }
+
+    fun doClaimFood(qrCode: Qr): LiveData<ParticipantResponse> {
+        return liveData(Dispatchers.IO) {
+            try {
+                val participant = repository.checkIn(qrCode)
+                emit(participant)
+            } catch (e: Exception) {
+                emit(ParticipantResponse(400,
+                    Participant("?", "?", "?", "?",
+                        0, 0, "Not a valid e-ticket")))
+            }
+        }
+    }
 }
