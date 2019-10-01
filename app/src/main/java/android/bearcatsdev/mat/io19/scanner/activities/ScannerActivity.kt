@@ -17,11 +17,13 @@ package android.bearcatsdev.mat.io19.scanner.activities
 import android.Manifest
 import android.app.Dialog
 import android.bearcatsdev.mat.io19.scanner.R
+import android.bearcatsdev.mat.io19.scanner.pojo.ParticipantResponse
 import android.bearcatsdev.mat.io19.scanner.pojo.Qr
 import android.bearcatsdev.mat.io19.scanner.viewmodel.ParticipantViewModel
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -86,16 +88,23 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
     override fun handleResult(rawResult: Result?) {
         mParticipantViewModel.doCheckIn(Qr(rawResult?.text ?: "")).observe(this, Observer { participantResponse ->
             when (participantResponse.status) {
-                200 -> showDetailsDialog()
+                200 -> showDetailsDialog(participantResponse)
                 else -> Toast.makeText(this, participantResponse.response.message, Toast.LENGTH_SHORT).show()
             }
         })
-        mZXingScannerView.resumeCameraPreview(this)
     }
 
-    private fun showDetailsDialog() {
+    private fun showDetailsDialog(participantResponse: ParticipantResponse) {
         val detailsDialog = Dialog(this, R.style.Scanner_DialogFullscreen)
         detailsDialog.setContentView(R.layout.dialog_details)
+        detailsDialog.setOnDismissListener {
+            mZXingScannerView.resumeCameraPreview(this@ScannerActivity)
+        }
+
+        val titleTextView = detailsDialog.findViewById<TextView>(R.id.title)
+
+        titleTextView.text = participantResponse.response.message
+
         detailsDialog.show()
     }
 }
