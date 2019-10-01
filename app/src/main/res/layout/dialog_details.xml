@@ -28,7 +28,7 @@
         android:layout_marginTop="@dimen/margin_extra_wide"
         app:strokeColor="@color/lineColor"
         app:strokeWidth="@dimen/thin_line"
-        app:cardElevation="@dimen/card_elevation"
+        app:cardElevation="@dimen/small_card_elevation"
         app:cardCornerRadius="@dimen/corner_radius"
         app:cardBackgroundColor="@android:color/white">
 

@@ -12,4 +12,5 @@
     <dimen name="line_width_normal">2dp</dimen>
     <dimen name="padding_extra_small">2dp</dimen>
     <dimen name="small_corner_radius">5dp</dimen>
+    <dimen name="small_card_elevation">1dp</dimen>
 </resources>
