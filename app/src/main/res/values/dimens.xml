@@ -8,7 +8,8 @@
     <dimen name="medium_font_size">16sp</dimen>
     <dimen name="margin_wide">24dp</dimen>
     <dimen name="corner_radius">10dp</dimen>
-    <dimen name="card_elevation">1dp</dimen>
+    <dimen name="card_elevation">3dp</dimen>
     <dimen name="line_width_normal">2dp</dimen>
     <dimen name="padding_extra_small">2dp</dimen>
+    <dimen name="small_corner_radius">5dp</dimen>
 </resources>

@@ -10,4 +10,5 @@
     <string name="ok">OK</string>
     <string name="scan_instruction">Scan the QR code on the e-ticket</string>
     <string name="check_in">Check In</string>
+    <string name="claim_food">Claim Food</string>
 </resources>
