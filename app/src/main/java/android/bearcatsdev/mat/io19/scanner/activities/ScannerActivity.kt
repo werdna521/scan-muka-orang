@@ -29,7 +29,9 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.button.MaterialButton
 import com.google.zxing.Result
+import kotlinx.android.synthetic.main.dialog_details.*
 import me.dm7.barcodescanner.zxing.ZXingScannerView
 
 class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
@@ -105,8 +107,25 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
         }
 
         val titleTextView = detailsDialog.findViewById<TextView>(R.id.title)
+        val nameTextView = detailsDialog.findViewById<TextView>(R.id.name)
+        val nimTextView = detailsDialog.findViewById<TextView>(R.id.nim)
+        val emailTextView = detailsDialog.findViewById<TextView>(R.id.email)
+        val dietaryTextView = detailsDialog.findViewById<TextView>(R.id.dietary)
+        val checkedInTextView = detailsDialog.findViewById<TextView>(R.id.checked_in)
+        val takenFoodTextView = detailsDialog.findViewById<TextView>(R.id.taken_food)
+        val okButton = detailsDialog.findViewById<MaterialButton>(R.id.ok_button)
 
         titleTextView.text = participantResponse.response.message
+        nameTextView.text = participantResponse.response.name
+        nimTextView.text = participantResponse.response.nim
+        emailTextView.text = participantResponse.response.email
+        dietaryTextView.text = participantResponse.response.dietary
+        checkedInTextView.text = if (participantResponse.response.checkedIn == 1) "Yes" else "No"
+        takenFoodTextView.text = if (participantResponse.response.takenFood == 1) "Yes" else "No"
+
+        okButton.setOnClickListener {
+            detailsDialog.dismiss()
+        }
 
         detailsDialog.show()
     }
