@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Scanner IO 19</string>
     <string name="details">Details</string>
+    <string name="name_label">Name:</string>
+    <string name="nim_label">NIM:</string>
+    <string name="email_label">Email:</string>
+    <string name="dietary_label">Dietary:</string>
+    <string name="checked_in_label">Checked In:</string>
+    <string name="claimed_food_label">Taken Food:</string>
+    <string name="ok">OK</string>
 </resources>

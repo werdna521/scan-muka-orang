@@ -2,5 +2,9 @@
 <resources>
     <dimen name="margin_extra_wide">32dp</dimen>
     <dimen name="title_font_size">24sp</dimen>
-    <dimen name="thin_line">2dp</dimen>
+    <dimen name="thin_line">1dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="padding_normal">16dp</dimen>
+    <dimen name="medium_font_size">20sp</dimen>
+    <dimen name="margin_wide">24dp</dimen>
 </resources>

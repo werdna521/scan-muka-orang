@@ -9,6 +9,10 @@
         <item name="android:fontFamily">@font/product_sans_regular</item>
     </style>
 
+    <style name="Scanner.Widget.Button" parent="Widget.MaterialComponents.Button">
+        <item name="cornerRadius">25dp</item>
+    </style>
+
     <style name="Scanner.DialogFullscreen" parent="Scanner">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
