@@ -4,16 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="40sp"
+        android:text="fjdakjfdksajfljdsalkjflkjsdalkfjlksdajfkdslkajflkjasdkjflkdsajlkfjsdalkf"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.13"
-        tools:text="Hello mai pren, you did it"/>
+        app:layout_constraintVertical_bias="0.06999999"
+        tools:text="Hello mai pren, you did it" />
 </androidx.constraintlayout.widget.ConstraintLayout>

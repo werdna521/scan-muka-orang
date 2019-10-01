@@ -15,6 +15,7 @@
 package android.bearcatsdev.mat.io19.scanner.activities
 
 import android.Manifest
+import android.app.Dialog
 import android.bearcatsdev.mat.io19.scanner.R
 import android.bearcatsdev.mat.io19.scanner.pojo.Qr
 import android.bearcatsdev.mat.io19.scanner.viewmodel.ParticipantViewModel
@@ -93,6 +94,8 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
     }
 
     private fun showDetailsDialog() {
-        // TODO start new full screen dialog to show participant info
+        val detailsDialog = Dialog(this, R.style.Scanner_DialogFullscreen)
+        detailsDialog.setContentView(R.layout.dialog_details)
+        detailsDialog.show()
     }
 }
