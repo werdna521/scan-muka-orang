@@ -21,7 +21,6 @@ import android.bearcatsdev.mat.io19.scanner.viewmodel.ParticipantViewModel
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
