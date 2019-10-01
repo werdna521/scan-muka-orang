@@ -29,13 +29,14 @@ class MainActivity : AppCompatActivity() {
 
         val checkInButton = findViewById<CardView>(R.id.check_in)
         checkInButton.setOnClickListener {
-            val intent = Intent(this@MainActivity, ScannerActivity::class.java)
+            val intent = ScannerActivity.getInstance(this@MainActivity, 1)
             startActivity(intent)
         }
 
         val claimFoodButton = findViewById<CardView>(R.id.claim_food)
         claimFoodButton.setOnClickListener {
-            Toast.makeText(this@MainActivity, "Coming soon!", Toast.LENGTH_SHORT).show()
+            val intent = ScannerActivity.getInstance(this@MainActivity, 2)
+            startActivity(intent)
         }
     }
 }

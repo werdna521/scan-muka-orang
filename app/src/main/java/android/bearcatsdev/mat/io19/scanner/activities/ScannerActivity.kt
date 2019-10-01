@@ -20,6 +20,8 @@ import android.bearcatsdev.mat.io19.scanner.R
 import android.bearcatsdev.mat.io19.scanner.pojo.ParticipantResponse
 import android.bearcatsdev.mat.io19.scanner.pojo.Qr
 import android.bearcatsdev.mat.io19.scanner.viewmodel.ParticipantViewModel
+import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -39,7 +41,14 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
     private lateinit var mParticipantViewModel: ParticipantViewModel
 
     companion object {
-        const val CAMERA_REQUEST_CODE = 100
+        private const val CAMERA_REQUEST_CODE = 100
+        private const val EXTRA_SCAN_ID = "scan_id"
+
+        fun getInstance(context: Context, scanId: Int): Intent {
+            val intent = Intent(context, ScannerActivity::class.java)
+            intent.putExtra(EXTRA_SCAN_ID, scanId)
+            return intent
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -94,15 +103,25 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
     }
 
     override fun handleResult(rawResult: Result?) {
-        mParticipantViewModel.doCheckIn(Qr(rawResult?.text ?: "")).observe(this, Observer { participantResponse ->
-            when (participantResponse.status) {
-                200 -> showDetailsDialog(participantResponse)
-                else -> {
-                    Toast.makeText(this, participantResponse.response.message, Toast.LENGTH_SHORT).show()
-                    mZXingScannerView.resumeCameraPreview(this)
-                }
-            }
-        })
+        val scanId = intent.getIntExtra(EXTRA_SCAN_ID, 1)
+        if (scanId == 1) {
+            mParticipantViewModel.doCheckIn(Qr(rawResult?.text ?: ""))
+                .observe(this, Observer { participantResponse ->
+                    when (participantResponse.status) {
+                        200 -> showDetailsDialog(participantResponse)
+                        else -> {
+                            Toast.makeText(
+                                this,
+                                participantResponse.response.message,
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            mZXingScannerView.resumeCameraPreview(this)
+                        }
+                    }
+                })
+        } else if (scanId == 2) {
+            
+        }
     }
 
     private fun showDetailsDialog(participantResponse: ParticipantResponse) {
