@@ -48,17 +48,16 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
         mZXingScannerView = findViewById(R.id.zxing)
         mParticipantViewModel = ViewModelProvider.AndroidViewModelFactory.getInstance(application).create(ParticipantViewModel::class.java)
 
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.CAMERA)
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
             != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
                 arrayOf(Manifest.permission.CAMERA),
                 CAMERA_REQUEST_CODE
             )
-        } else {
-            mZXingScannerView.setResultHandler(this)
-            mZXingScannerView.startCamera()
         }
+
+        mZXingScannerView.setResultHandler(this)
+        mZXingScannerView.startCamera()
     }
 
     override fun onRequestPermissionsResult(requestCode: Int,

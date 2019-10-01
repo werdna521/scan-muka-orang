@@ -8,4 +8,5 @@
     <string name="checked_in_label">Checked In:</string>
     <string name="claimed_food_label">Taken Food:</string>
     <string name="ok">OK</string>
+    <string name="scan_instruction">Scan the QR code on the e-ticket</string>
 </resources>
