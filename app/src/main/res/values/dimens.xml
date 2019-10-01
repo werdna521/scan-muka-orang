@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_extra_wide">32dp</dimen>
+    <dimen name="title_font_size">24sp</dimen>
+    <dimen name="thin_line">2dp</dimen>
+</resources>
