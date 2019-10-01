@@ -120,7 +120,7 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
                     }
                 })
         } else if (scanId == 2) {
-            
+
         }
     }
 

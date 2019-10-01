@@ -36,4 +36,7 @@ interface ParticipantService {
 
     @POST("/api/v1/checkin")
     suspend fun checkIn(@Body qr: Qr): ParticipantResponse
+
+    @POST("/api/v1/claimfood")
+    suspend fun claimFood(@Body qr: Qr): ParticipantResponse
 }
