@@ -21,4 +21,6 @@ class ParticipantRepository {
     private val participantService = ParticipantService.getService()
 
     suspend fun checkIn(qrCode: Qr) = participantService.checkIn(qrCode)
+
+    suspend fun claimFood(qrCode: Qr) = participantService.claimFood(qrCode)
 }
