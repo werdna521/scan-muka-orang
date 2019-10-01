@@ -17,10 +17,9 @@ package android.bearcatsdev.mat.io19.scanner.activities
 import android.bearcatsdev.mat.io19.scanner.R
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.card.MaterialCardView
+import androidx.cardview.widget.CardView
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,13 +27,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val checkInButton = findViewById<MaterialCardView>(R.id.check_in)
+        val checkInButton = findViewById<CardView>(R.id.check_in)
         checkInButton.setOnClickListener {
             val intent = Intent(this@MainActivity, ScannerActivity::class.java)
             startActivity(intent)
         }
 
-        val claimFoodButton = findViewById<MaterialCardView>(R.id.claim_food)
+        val claimFoodButton = findViewById<CardView>(R.id.claim_food)
         claimFoodButton.setOnClickListener {
             Toast.makeText(this@MainActivity, "Coming soon!", Toast.LENGTH_SHORT).show()
         }

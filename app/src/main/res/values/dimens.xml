@@ -13,4 +13,6 @@
     <dimen name="padding_extra_small">2dp</dimen>
     <dimen name="small_corner_radius">5dp</dimen>
     <dimen name="small_card_elevation">1dp</dimen>
+    <dimen name="margin_normal">16dp</dimen>
+    <dimen name="margin_mini">4dp</dimen>
 </resources>
