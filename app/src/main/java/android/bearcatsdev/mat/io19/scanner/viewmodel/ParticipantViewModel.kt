@@ -42,7 +42,7 @@ class ParticipantViewModel: ViewModel() {
     fun doClaimFood(qrCode: Qr): LiveData<ParticipantResponse> {
         return liveData(Dispatchers.IO) {
             try {
-                val participant = repository.checkIn(qrCode)
+                val participant = repository.claimFood(qrCode)
                 emit(participant)
             } catch (e: Exception) {
                 emit(ParticipantResponse(400,

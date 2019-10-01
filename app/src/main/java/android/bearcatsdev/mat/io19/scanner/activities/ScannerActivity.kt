@@ -103,12 +103,12 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
     }
 
     override fun handleResult(rawResult: Result?) {
-        val scanId = intent.getIntExtra(EXTRA_SCAN_ID, 1)
+        val scanId = intent.getIntExtra(EXTRA_SCAN_ID, 0)
         if (scanId == 1) {
             mParticipantViewModel.doCheckIn(Qr(rawResult?.text ?: ""))
                 .observe(this, Observer { participantResponse ->
                     when (participantResponse.status) {
-                        200 -> showDetailsDialog(participantResponse)
+                        200 -> showDetailsDialog(participantResponse, 1)
                         else -> {
                             Toast.makeText(
                                 this,
@@ -120,11 +120,24 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
                     }
                 })
         } else if (scanId == 2) {
-
+            mParticipantViewModel.doClaimFood(Qr(rawResult?.text ?: ""))
+                .observe(this, Observer { participantResponse ->
+                    when (participantResponse.status) {
+                        200 -> showDetailsDialog(participantResponse, 2)
+                        else -> {
+                            Toast.makeText(
+                                this,
+                                participantResponse.response.message,
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            mZXingScannerView.resumeCameraPreview(this)
+                        }
+                    }
+                })
         }
     }
 
-    private fun showDetailsDialog(participantResponse: ParticipantResponse) {
+    private fun showDetailsDialog(participantResponse: ParticipantResponse, scanId: Int) {
         val detailsDialog = Dialog(this, R.style.Scanner_DialogFullscreen)
         detailsDialog.setContentView(R.layout.dialog_details)
         detailsDialog.setOnDismissListener {
@@ -148,7 +161,11 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
         checkedInTextView.text = if (participantResponse.response.checkedIn == 1) "Yes" else "No"
         takenFoodTextView.text = if (participantResponse.response.takenFood == 1) "Yes" else "No"
 
-        titleTextView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_checked, 0, 0, 0)
+        if (scanId == 2 && participantResponse.response.message == "Food has been claimed once") {
+            titleTextView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_cross, 0, 0, 0)
+        } else {
+            titleTextView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_checked, 0, 0, 0)
+        }
 
         okButton.setOnClickListener {
             detailsDialog.dismiss()
