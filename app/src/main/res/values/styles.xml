@@ -6,7 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="font">@font/product_sans</item>
+        <item name="font">@font/product_sans_italic</item>
     </style>
 
     <style name="Scanner.DialogFullscreen" parent="Scanner">
