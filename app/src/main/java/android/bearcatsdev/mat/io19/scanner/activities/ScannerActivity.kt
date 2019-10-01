@@ -89,7 +89,10 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
         mParticipantViewModel.doCheckIn(Qr(rawResult?.text ?: "")).observe(this, Observer { participantResponse ->
             when (participantResponse.status) {
                 200 -> showDetailsDialog(participantResponse)
-                else -> Toast.makeText(this, participantResponse.response.message, Toast.LENGTH_SHORT).show()
+                else -> {
+                    Toast.makeText(this, participantResponse.response.message, Toast.LENGTH_SHORT).show()
+                    mZXingScannerView.resumeCameraPreview(this)
+                }
             }
         })
     }
