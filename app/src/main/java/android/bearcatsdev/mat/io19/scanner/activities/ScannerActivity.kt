@@ -31,7 +31,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.button.MaterialButton
 import com.google.zxing.Result
-import kotlinx.android.synthetic.main.dialog_details.*
 import me.dm7.barcodescanner.zxing.ZXingScannerView
 
 class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
@@ -122,6 +121,8 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
         dietaryTextView.text = participantResponse.response.dietary
         checkedInTextView.text = if (participantResponse.response.checkedIn == 1) "Yes" else "No"
         takenFoodTextView.text = if (participantResponse.response.takenFood == 1) "Yes" else "No"
+
+        titleTextView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_checked, 0, 0, 0)
 
         okButton.setOnClickListener {
             detailsDialog.dismiss()
