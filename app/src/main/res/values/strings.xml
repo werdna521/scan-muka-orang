@@ -11,4 +11,6 @@
     <string name="scan_instruction">Scan the QR code on the e-ticket</string>
     <string name="check_in">Check In</string>
     <string name="claim_food">Claim Food</string>
+    <string name="manual_input">Manual Input</string>
+    <string name="e_ticket_number">E-ticket number</string>
 </resources>

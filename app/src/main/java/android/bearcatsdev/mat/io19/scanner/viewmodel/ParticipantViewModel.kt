@@ -34,7 +34,7 @@ class ParticipantViewModel: ViewModel() {
             } catch (e: Exception) {
                 emit(ParticipantResponse(400,
                     Participant("?", "?", "?", "?",
-                        0, 0, "Not a valid e-ticket")))
+                        0, 0, "Not a valid e-ticket", "", "")))
             }
         }
     }
@@ -47,7 +47,7 @@ class ParticipantViewModel: ViewModel() {
             } catch (e: Exception) {
                 emit(ParticipantResponse(400,
                     Participant("?", "?", "?", "?",
-                        0, 0, "Not a valid e-ticket")))
+                        0, 0, "Not a valid e-ticket", "", "")))
             }
         }
     }

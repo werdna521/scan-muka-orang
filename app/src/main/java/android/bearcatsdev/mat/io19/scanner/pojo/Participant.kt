@@ -23,5 +23,7 @@ data class Participant(
     @SerializedName("dietary") val dietary: String,
     @SerializedName("checked_in") val checkedIn: Int,
     @SerializedName("taken_food") val takenFood: Int,
-    @SerializedName("message") val message: String
+    @SerializedName("message") val message: String,
+    @SerializedName("checked_in_time") val checkedInTime: String,
+    @SerializedName("taken_food_time") val takenFoodTime: String
 )

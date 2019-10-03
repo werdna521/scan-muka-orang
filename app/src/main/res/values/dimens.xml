@@ -15,4 +15,5 @@
     <dimen name="small_card_elevation">1dp</dimen>
     <dimen name="margin_normal">16dp</dimen>
     <dimen name="margin_mini">4dp</dimen>
+    <dimen name="margin_raksasa">64dp</dimen>
 </resources>

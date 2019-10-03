@@ -25,6 +25,8 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
@@ -75,6 +77,22 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
 
         mZXingScannerView.setResultHandler(this)
         mZXingScannerView.startCamera()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            R.id.manual_input -> {
+                val intent = PencetSendiriActivity.createInstance(this, intent.getIntExtra(
+                    EXTRA_SCAN_ID, 0))
+                startActivity(intent)
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onRequestPermissionsResult(requestCode: Int,

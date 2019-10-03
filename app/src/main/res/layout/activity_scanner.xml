@@ -16,12 +16,12 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@android:color/transparent"
-        app:navigationIcon="@drawable/ic_arrow_back"/>
+        app:navigationIcon="@drawable/ic_arrow_back" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_extra_wide"
+        android:layout_marginTop="@dimen/margin_raksasa"
         android:textColor="@android:color/white"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
